@@ -1,9 +1,32 @@
 <script>
-intext = prompt("Enter a posotive or negative integer number")
-shift = prompt("Inter some text.")
+    prompt("Ayy")
+
+intext = prompt("Inter some text.")
+shift = prompt("Enter a posotive or negative integer number")
+answer = " "
+size = intext.length; 
     
-{
-    alert(intext.charCodeAt(i))
-}
+    for (i=0; i<size; i++){
+        // get the ASCII code
+    x = intext.charCodeAt(i)
+        //transfer the ASCII code for UpperCase
+        if (x >= 65 &&  x<= 90){
+			result = parseInt(((x - 65 + shift) % 26) + 65);
+            window.alert(results)
+            
+            answer += String.fromCharCode(result)
+		}
+        //transfer the ASCII code for the LowerCase
+       if(x>= 97 && x<= 122) {
+            result = parseInt(((x - 97 + shift) % 26) + 97); 
+           window.alert(results)
+           answer += String.fromCharCode(result)
+        }
+        // turn the ASCII code back into a letter
+        //String.fromCharCode(x)}}
+    
+    } 
+        alert(answer)
+    
     
 </script>
