@@ -1,0 +1,25 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+    
+function process() {
+  x = document.getElementById("input").value
+  //code here
+    y = x.split(" ")
+
+    for(i=0; i<y.length; i++){
+        if(y[i] == "a" && y[i+1].charAt(0) == "a"||y[i] == "a" && y[i+1].charAt(0) == "e"||y[i] == "a" && y[i+1].charAt(0) == "i"||y[i] == "a" && y[i+1].charAt(0) == "o"||y[i] == "a" && y[i+1].charAt(0) == "u"){
+            y[i] = "an"
+        }
+        if(y[i] == "an" && y[i+1].charAt(0) == "q"||y[i] == "an" && y[i+1].charAt(0) == "w"||y[i] == "an" && y[i+1].charAt(0) == "r"||y[i] == "an" && y[i+1].charAt(0) == "t"||y[i] == "an" && y[i+1].charAt(0) == "y"||y[i] == "an" && y[i+1].charAt(0) == "p"||y[i] == "an" && y[i+1].charAt(0) == "s"||y[i] == "an" && y[i+1].charAt(0) == "d"||y[i] == "an" && y[i+1].charAt(0) == "g"||y[i] == "an" && y[i+1].charAt(0) == "h"||y[i] == "an" && y[i+1].charAt(0) == "j"||y[i] == "an" && y[i+1].charAt(0) == "k"||y[i] == "an" && y[i+1].charAt(0) == "l"||y[i] == "an" && y[i+1].charAt(0) == "z"||y[i] == "an" && y[i+1].charAt(0) == "x"||y[i] == "an" && y[i+1].charAt(0) == "c"||y[i] == "an" && y[i+1].charAt(0) == "v"||y[i] == "an" && y[i+1].charAt(0) == "b"||y[i] == "an" && y[i+1].charAt(0) == "n"||y[i] == "an" && y[i+1].charAt(0) == "m"){
+             y[i] = "a" 
+        }
+        
+    
+
+document.getElementById("output").value = y.join(" ")    
+}
+</script>
+    
