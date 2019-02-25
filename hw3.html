@@ -13,14 +13,14 @@ function process() {
     
   
     for(i=0; i<(y.length-1); i++){ if(y[i+1].charAt(0)==="a"||y[i+1].charAt(0)==="e"||y[i+1].charAt(0)==="i"||y[i+1].charAt(0)==="o"||y[i+1].charAt(0)==="u"){
-           next_word_starts_with_vowel=true
+           f=true
            } else{
-           next_word_starts_with_vowel=false
+           f=false
            }
-           if(y[i]==="a" && next_word_starts_with_vowel ) {
+           if(y[i]==="a" && f ) {
            y[i]="an" 
         }
-           if(y[i]=== "an" && !next_word_starts_with_vowel){
+           if(y[i]=== "an" && !f){
                y[i]="a"
            }
                                  }
