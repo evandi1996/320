@@ -1,17 +1,27 @@
 //this should be pretty hard!
+//bank of questions 
+//learner model 
+// object { keys = preps, values = [array]}
 <script>
-var = person{
 
+question_bank ={
+in: ["the toy is ___ the box", "I met him___ September.","___ the begining was the world."]
+    
 }
-var = question {
-Q1= 
-Q2=
-Q3=}
-var = score
-
-Q1 = prompt("This is a very ___ question.")
-break_loop = true
-if(Q1 == "easy"){
-alert("good job next question") 
-
-}
+    learner_model = {in: 0, on: -3, by: 0}
+      preposition= ["in", "on","by"]
+    worst_known_preposition = preposition[0]
+    smallest_score = learner_model[worst_known_preposition]
+    
+    while(true) {
+     for (i=0; i<preposition.length; i++) {
+         if (learner_model[preposition[i]]<smallest_score) {
+             smallest_score = learner_model[preposition[i]]
+             worst_known_preposition = preposition[i]
+         }
+         alert("rejoice" && worst_known_preposition)
+     }
+        prompt()
+    }
+    //lear
+</script>
