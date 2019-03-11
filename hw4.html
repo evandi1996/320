@@ -1,5 +1,30 @@
-
 <script>
+    //all the the questions 
+All_dem_Qs =
+    {
+    if:["I will smak a how ___ he/she steals my money.","___ you talk to me like that i will cry", "don't go ___ you don't want to."],
+    should:["You ___ eat more food.", "Where ___ I go tommorow.","You ___ treat your boyfriend better."],
+    eat:["I'm so hungry I could ___ a cow.","I am always ___, I never can get enough food.","There are hungry people everywhere, ___ your food!"]
+}
+    //scores
+    score = {if:0, should:0, eat:0}
+    //for finding things
+    word = ["if", "should", "eat"]
+    
+worst= word[0]    
+    smallest = score[worst]
+    for(i=0; i<score.length; i++){
+        if(score[i]>smallest){
+            smallest=word[score[i]]
+            worst = score[i]
+        }
+    }
+
+    //smallest_score = learner_model[preposition[i]]
+	  //worst_known_preposition = preposition[i]
+    
+</script>
+<!--script>
 
 question_bank = 
     {
@@ -34,9 +59,10 @@ outside:
 }
     
 
-    
+    //for scorring 
     learner_model = {in: 0, on: 0, by: 0, of: 0, outside: 0}
     
+        //for cycleing through the scorrring 
       preposition= ["in", "on","by","behind","outside"]
     
     
@@ -65,7 +91,7 @@ outside:
         }
     
     
-</script>
+</script-->
 
 <!--script>
     
