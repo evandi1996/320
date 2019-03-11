@@ -1,31 +1,6 @@
+
 <script>
-    //all the the questions 
-All_dem_Qs =
-    {
-    if:["I will smak a how ___ he/she steals my money.","___ you talk to me like that i will cry", "don't go ___ you don't want to."],
-    should:["You ___ eat more food.", "Where ___ I go tommorow.","You ___ treat your boyfriend better."],
-    eat:["I'm so hungry I could ___ a cow.","I am always ___, I never can get enough food.","There are hungry people everywhere, ___ your food!"]
-}
-    //scores
-    score = {if:0, should:0, eat:0}
-    //for finding things
-    word = ["if", "should", "eat"]
-    
-worst= word[0]    
-    smallest = score[worst]
-    for(i=0; i<score.length; i++){
-        if(score[i]>smallest){
-            smallest=word[score[i]]
-            worst = score[i]
-        }
-    }
-
-    //smallest_score = learner_model[preposition[i]]
-	  //worst_known_preposition = preposition[i]
-    
-</script>
-<!--script>
-
+//object with all the prepositions of 
 question_bank = 
     {
 in:
@@ -59,14 +34,13 @@ outside:
 }
     
 
-    //for scorring 
+    
     learner_model = {in: 0, on: 0, by: 0, of: 0, outside: 0}
     
-        //for cycleing through the scorrring 
       preposition= ["in", "on","by","behind","outside"]
     
     
-    
+    //goes through and finds the worst known preposition and replaces with the actuall worst one 
     while (true) {
   worst_known_preposition = preposition[0]
   smallest_score = learner_model[worst_known_preposition]
@@ -77,7 +51,7 @@ outside:
     }
   }
          
-         
+         //alerts weather correct or not and changes the score of the preposition in the learner_model
         question = question_bank[worst_known_preposition][parseInt(Math.random()*5)]
    awnswer = prompt(question) 
         if(awnswer === worst_known_preposition){
@@ -91,62 +65,4 @@ outside:
         }
     
     
-</script-->
-
-<!--script>
-    
-var in_prep = new Array;
-        in_prep[0]="I met him ___ September."; 
-        in_prep[1]="The toy is ___ the box.";
-        in_prep[2]="___ the beginning was the word.";
-        in_prep[3]="It was ___ September when I found out.";
-        in_prep[4]="The pizza was ___ the oven.";
-var on_prep = new Array;
-        on_prep[0]="The toy is ___ the box.";
-        on_prep[1]="Don't put that __ the computer";
-        on_prep[2]="Why is that cat __ that thing";
-        on_prep[3]="You can't ride __ the dog";
-        on_prep[4]="Where do I get __ the train?";
-var by_prep = new Array;
-        by_prep[0] ="It's right over there, ___ the car." ;
-        by_prep[1] = "Why are they always __ the school?";
-        by_prep[2] = "I cant stand to be __ people that smoke.";
-        by_prep[3] = "I don't like to eat my food ___ the dumpster.";
-        by_prep[4] = "When i'm __ her side I really don't care.";
-var of_prep = new Array;
-        of_prep[0] = "They speak __ a party plan.";
-        of_prep[1] = "It was __ no importance to him.";
-        of_prep[2] = "";
-        of_prep[3] = "";
-        of_prep[4] = "";
-var near_prep = new Array;
-        near_prep[0] ="" ;
-        near_prep[1] = "";
-        near_prep[2] = "";
-        near_prep[3] = "";
-        near_prep[4] = "";
-    question_bank = {}
-   
-
-    var random_in = parseInt(Math.random*(in_prep.length)); 
-    alert((random_in))
-    //alert(in_prep[random_in])
-learner_model = { in: 0, on: -10, by: 0, of: 0, near: 0}
-
-prepositions = ['in', 'on', 'by', 'of', 'near']
-
-    
-    if (learner_model = 0)
-while (true) {
-  worst_known_preposition = prepositions[0]
-  smallest_score = learner_model[worst_known_preposition]
-  for (i=1; i<prepositions.length; i++) {
-    if (learner_model[prepositions[i]] < smallest_score) {
-      smallest_score = learner_model[prepositions[i]]
-      worst_known_preposition = prepositions[i]
-    }
-  }
-  alert("Worst known preposition is " + worst_known_preposition)
-}
-
-</script-->
+</script>
