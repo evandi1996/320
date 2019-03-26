@@ -1,0 +1,89 @@
+<script>
+    
+q_ir_present = {
+    yo: ["Yo ___ al mercado."],
+    tu:["Tú ___ a poder hacer la tarea?"],
+    el_ella_usted:["Usted ___ al cine hoy?"],
+    nosotros:["Nosotros ___ a bailar cumbia si quieres"],
+    ellxs_ustedes:["Ellas ___ de viaje, asi que no podremos quedar."],
+    vosotros:["Cuando vosotros ___ al mercado me compreis un par de cosas."]
+    
+    
+}
+    alert(q_ir_present[0][0])
+//ir = {yo: "voy", tu:"vas", el_ella_usted:"va", nosotros:"vamos", ellxs_ustedes: "van", vosotros:"vais"} 
+    learner_model = {
+    yo:0, 
+    tu:0,
+    el_ella_usted:0,
+    nosotros:0,
+    ellxs_ustedes:0,
+    vosotros:0 }
+    
+      conjucation= ["voy","vas","va","vamos","van","vais"]
+    
+    //while(true)
+        worst_known_conjugation = conjucation[0]
+        smallest_score =learner_model[worst_known_conjugation]
+    for (i=0; i<conjucation.length; i++){
+        if(learner_model[conjucation[i]]<smallest_score){
+            smallest_score=learner_model[conjucation[i]]
+            worst_known_conjugation=conjucation[i]
+        }
+    }
+    alert(q_ir_present[0][0])
+    question = q_ir_present[worst_known_conjugation]
+    answer = prompt(question)
+    if(answer=worst_known_conjugation){
+        alert("Good job the answer is:" + question.replace("___", worst_known_conjugation))
+        learner_model[worst_known_conjugation]++
+    }else{
+        alert("Too bad, that was wrong, the correct answer is:"+ question.replace("___", worst_known_conjugation))
+        learner_model[worst_known_conjugation]--
+    }
+    
+</script>
+<!--script>
+
+question_bank = 
+    {
+subjuntivo_tú_tengas:
+    ["Quiero que tú no ___ frío.", "Siento que ___ frío.", "Te doy mi chaqueta para que no ___ frío."
+    ],
+
+    
+}
+    
+
+    
+    learner_model = {subjuntivo_tú: 0, }
+    
+      preposition= ["tengas", ]
+    
+    
+    
+    while (true) {
+  worst_known_preposition = preposition[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=0; i<preposition.length; i++) {
+    if (learner_model[preposition[i]] < smallest_score) {
+	  smallest_score = learner_model[preposition[i]]
+	  worst_known_preposition = preposition[i]
+    }
+  }
+         
+         
+        question = question_bank[worst_known_preposition][parseInt(Math.random()*5)]
+   awnswer = prompt(question) 
+        if(awnswer === worst_known_preposition){
+            alert("Correct: " + question.replace("___", worst_known_preposition))
+            learner_model[worst_known_preposition]++
+        }
+        else{
+            alert("Incorect, the correct answer is: " + question.replace("___", worst_known_preposition))
+            learner_model[worst_known_preposition]--
+        }
+        }
+    //examples from:
+    //https://www.thoughtco.com/when-to-use-the-subjunctive-mood-3079851
+</script-->
