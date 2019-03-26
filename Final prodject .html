@@ -1,0 +1,108 @@
+<script>
+    question_bank_tener =
+        {
+        yo:[],
+        tú: ["Quiero que tú no ___ frío.", "Siento que ___ frío.", "Te doy mi chaqueta para que no ___ frío."],
+        él_ella:["Quienquiera que ___ tu libro, te lo devolverá."],
+        nosotros:[],
+        vosotros:[],
+        ellxs_ustedes:[]
+    }
+    learner_model = {yo: 0, tú: 0, él_ella: 0, nosotros:0, vosotros: 0,ellxs_ustedes:0 }
+
+      verb_tener= ["in", "on","by","behind","outside"]
+    
+    question_bank_venir = 
+        {
+        yo:["El que quiera, que venga"],
+        tú: ["Te ruego que vengas a recogerme al aeropuerto.","Me da igual que vengas o que no vengas.","Me hace muy feliz que vengas a mi boda desde tan lejos"],
+        él_ella:["Puede que venga a mi fiesta, pero no estoy segura","El que quiera, que venga"],
+        nosotros:[],
+        vosotros:["Nos hace mucha ilusión que vengáis a visitarnos."],
+        ellxs_ustedes:["El que quiera, que vengan."]
+        
+    }
+    
+    question_bank_hacer =
+        {
+     yo:["Me han ordenado que haga este trabajo."],
+        tú: [],
+        él_ella:[],
+        nosotros:[],
+        vosotros:[],
+        ellxs_ustedes:[]
+    }
+     question_bank_volver =
+        {
+     yo:[],
+        tú: ["Te dejo que vuelvas tarde esta noche."],
+        él_ella:[" Prefiero que no vuelva"],
+        nosotros:[],
+        vosotros:[],
+        ellxs_ustedes:[]
+    }
+    question_bank_ir =
+        {
+     yo:[],
+        tú: [],
+        él_ella:["Dudo que usted vaya al Perú en diciembre."],
+        nosotros:[],
+        vosotros:[],
+        ellxs_ustedes:[]
+    }
+    
+    
+    learner_model
+</script>
+<!--script>
+
+question_bank = 
+    {
+subjuntivo_de_presente = 
+    ["No"]
+["Quiero que tú no ___ frío.", "Siento que ___ frío.", "Te doy mi chaqueta para que no ___ frío."
+    ],
+    ["Puede que ,él/ella, ___ a mi fiesta, pero no estoy segura"
+    
+    ],
+[
+    
+    ],
+    ["Os recomiendo que ___ a clase."]
+
+
+}
+    
+
+    
+    learner_model = {subjuntivo_de_presente: 0, }
+    
+      preposition= ["tengas", ]
+    
+    
+    
+    while (true) {
+  worst_known_preposition = preposition[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=0; i<preposition.length; i++) {
+    if (learner_model[preposition[i]] < smallest_score) {
+	  smallest_score = learner_model[preposition[i]]
+	  worst_known_preposition = preposition[i]
+    }
+  }
+         
+         
+        question = question_bank[worst_known_preposition][parseInt(Math.random()*5)]
+   awnswer = prompt(question) 
+        if(awnswer === worst_known_preposition){
+            alert("Correct: " + question.replace("___", worst_known_preposition))
+            learner_model[worst_known_preposition]++
+        }
+        else{
+            alert("Incorect, the correct answer is: " + question.replace("___", worst_known_preposition))
+            learner_model[worst_known_preposition]--
+        }
+        }
+    //examples from:
+    //https://www.thoughtco.com/when-to-use-the-subjunctive-mood-3079851
+</script-->
