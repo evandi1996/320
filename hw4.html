@@ -1,0 +1,69 @@
+
+<script>
+//object with all the prepositions of 
+question_bank = 
+    {
+in:
+    [
+    "the toy is ___ the box", "I met him ___ September.","___ the begining was the world.","It was ___ September when I found out.","The pizza was ___ the oven."],
+on:
+["The toy is ___ the box, so the boy can't get it.",
+        "Don't put that ___ the computer, it might spill al over.",
+        "Why is that cat ___ the horse, the horse is going to buck him off.",
+        "You can't ride ___ the dog, you are too heavy for it.",
+        "Where do I get ___ the train?"],
+    by:
+["She is ___ the car, the car is close to her.",
+        "Why are they always ___ the school?",
+        "I can't stand to be ___ people that smoke.",
+       "I don't like to eat my food ___ the dumpster.",
+         "When i'm ___ her side I really don't care."],
+of:
+["They speak ___ a party plan.",
+ "It was ___ no importance to him.",
+"They were ___ no humor.",
+"What is the negative ___ that."],
+
+outside:
+["Don't go ___ without your coat!",
+"The cat is ___ the box.",
+"When it is bad ___ the cats hide.",
+"If we could have class ___ I would get to see the sky.",
+ "It was a shock when we saw that the fish was ___ of the tank"]
+    
+}
+ 
+ 
+
+    
+    learner_model = {in: 0, on: 0, by: 0, of: 0, outside: 0}
+    
+      preposition= ["in", "on","by","behind","outside"]
+    
+    
+    //goes through and finds the worst known preposition and replaces with the actuall worst one 
+    while (true) {
+  worst_known_preposition = preposition[0]
+  smallest_score = learner_model[worst_known_preposition]
+  for (i=0; i<preposition.length; i++) {
+    if (learner_model[preposition[i]] < smallest_score) {
+	  smallest_score = learner_model[preposition[i]]
+	  worst_known_preposition = preposition[i]
+    }
+  }
+         
+         //alerts weather correct or not and changes the score of the preposition in the learner_model
+        question = question_bank[worst_known_preposition][parseInt(Math.random()*5)]
+   awnswer = prompt(question) 
+        if(awnswer === worst_known_preposition){
+            alert("Correct: " + question.replace("___", worst_known_preposition))
+            learner_model[worst_known_preposition]++
+        }
+        else{
+            alert("Incorect, the correct answer is: " + question.replace("___", worst_known_preposition))
+            learner_model[worst_known_preposition]--
+        }
+        }
+    
+    
+</script>
