@@ -1,36 +1,36 @@
 <script>
     question_bank = 
     {
-        yo:[ "Yo me ___.", "Mañana no quiero ir así que no ___.", "No tengo dinero, no sé como ___ a comprarme un coche.", "Yo ___ al cine ¿me quieres acompañar?", "Me dijo, no me ___ a rendir."
-        ],
-        tu:["?Adonde tu ___?", "?Si no puedes conseguir trabajo que ___ a hacer?", "Yo sé que ___ a poder hacerlo.", "Si tu te ___, no podré vivir.", "Cuando ___ al super, comprame una buena botella de vino."
-        ],
-        elellaud:["Si ella ___ al mismo sitio no iré.", "Si me contrata usted yo estoy segura de que ___ a estar contento.", "El chico se ___ de vacaciones", "Le ___ bien, a que sí.", "Si ___ a ser así no le voy a volver a ver."
-        ],
-        nosotros: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso."],
-        vosotros: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso."],
-        ellaosuds: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso."]
+        voy:[ "Yo me ___.", "Mañana no quiero ir así que no ___.", "No tengo dinero, no sé como ___ a comprarme un coche.", "Yo ___ al cine ¿me quieres acompañar?", "Me dijo, no me ___ a rendir."],
+        vas:["?Adonde tu ___?", "?Si no puedes conseguir trabajo que ___ a hacer?", "Yo sé que ___ a poder hacerlo.", "Si tu te ___, no podré vivir.", "Cuando ___ al super, comprame una buena botella de vino."],
+        va:["Si ella ___ al mismo sitio no iré.", "Si me contrata usted yo estoy segura de que ___ a estar contento.", "El chico se ___ de vacaciones", "Le ___ bien, a que sí.", "Si ___ a ser así no le voy a volver a ver."],
+        vamos: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso.", "Nosotros ___ a conocernos."],
+        vais: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso.", "Nosotros ___ a conocernos."],
+        van: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso.", "Nosotros ___ a conocernos."]
     }
 
-learner_model = {yo:0, tu:0, elellaud:0, nosotros:0, vosotros:0, ellaosuds:0}
+learner_model = {voy:0, vas:0, va:0, vamos:0, vais:0, van:0}
 
 conjugation = ["voy", "vas", "va", "vamos", "vais", "van"]
 
 while (true) {
   worst_known_conjugation = conjugation[0]
   smallest_score = learner_model[worst_known_conjugation]
-  for (i=0; i<conjugation.length; i++) {
+  for (let i=0; i<conjugation.length; i++) {
     if (learner_model[conjugation[i]] < smallest_score) {
       smallest_score = learner_model[conjugation[i]]
       worst_known_conjugation = conjugation[i]
     }
   }
-         
+
+  let i = parseInt(Math.random()*5);
          //alerts weather correct or not and changes the score of the preposition in the learner_model
-        question = question_bank[worst_known_conjugation][parseInt(Math.random()*5)]
-   awnswer = prompt(question) 
+        question = question_bank[worst_known_conjugation][i]
+   awnswer = prompt(question).trim() 
         if(awnswer === worst_known_conjugation){
             alert("Correct: " + question.replace("___", worst_known_conjugation))
+            let k = learner_model[worst_known_conjugation];
+            let j = k++;
             learner_model[worst_known_conjugation]++
         }
         else{
@@ -40,7 +40,7 @@ while (true) {
         }
 </script>
 
-<--script>
+<--!script>
     question_bank_tener =
         {
         yo:[],
