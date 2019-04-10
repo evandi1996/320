@@ -1,17 +1,59 @@
+
+
+
+<p>Input: Choose which verb then conjugate it in the present tense. Ir, Ser, Estar, Tener, Hacer : 
+<p id = "p1"> question </p> 
+<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+  <p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+
 <script>
-    question_bank = 
-    {
-        voy:[ "Yo me ___.", "Mañana no quiero ir así que no ___.", "No tengo dinero, no sé como ___ a comprarme un coche.", "Yo ___ al cine ¿me quieres acompañar?", "Me dijo, no me ___ a rendir."],
-        vas:["?Adonde tu ___?", "?Si no puedes conseguir trabajo que ___ a hacer?", "Yo sé que ___ a poder hacerlo.", "Si tu te ___, no podré vivir.", "Cuando ___ al super, comprame una buena botella de vino."],
-        va:["Si ella ___ al mismo sitio no iré.", "Si me contrata usted yo estoy segura de que ___ a estar contento.", "El chico se ___ de vacaciones", "Le ___ bien, a que sí.", "Si ___ a ser así no le voy a volver a ver."],
-        vamos: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso.", "Nosotros ___ a conocernos."],
-        vais: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso.", "Nosotros ___ a conocernos."],
-        van: ["¿Porque nosotros no ___ al cine esta noche?", "Si ___ a comprar tantas cosas, no quedará ni un sentavo para mañana.", "Nosotros ___ a conocernos.", "No sé si ___ a tener el tiempo para todo eso.", "Nosotros ___ a conocernos."]
-    }
+    
+    question_bank = {
 
-learner_model = {voy:0, vas:0, va:0, vamos:0, vais:0, van:0}
+    
+               voy:[ "Yo ___ a la biblioteca para estudiar.", "Yo ___ a la playa este fin de semana.", "Yo no ___ al trabajo.", "Yo ___ a España este verano", "Yo ___ a salir esta noche."],
+        vas:["¿Adónde ___ tú?", "Tú ___ a la biblioteca para estudiar.", "Tú ___ a la playa este fin de semana.", "Tú ___ a Italia este verano.", "Tú ___ a salir esta noche."],
+        va:["Él ___ a la biblioteca para estudiar.", "Ella ___ a la playa este fin de semana.", "¿Adónde ___ usted?", "Evgeny ___ a Rusia.", "Merlyn ___ a salir esta noche."],
+        vamos: ["Evan y yo ___ a la biblioteca para estudiar.", "Tú y yo ___ al café.", "Nosotros ___ a la playa este fin de semana.", "Mi amigo y yo ___ a España.", "Nosotras ___ a salir esta noche."],
+        vais: ["¿Adónde ___ vosotros?", "Vosotros ___ a la biblioteca para estudiar.", "Vosotros ___ a la playa este fin de semana.", "Vosotros ___ a Francia este verano.", "Vosotros ___ a salir esta noche."],
+        van: ["¿Adónde ___ ustedes?", "Evgeny y Evan ___ a la biblioteca para estudiar.", "Ellos ___ al trabajo.", "Ellas ___ a la playa este fin de semana.", "Todos mis amigos ___ a salir esta noche."],
+        soy: ["Yo ___ guapo.", "Yo no ___ viejo.", "Yo ___ una princesa."],
+        eres: ["Tú ___ de los Estados Unidos.", "¿De dónde ___ tú?", "Tú ___ mi mejor amiga."],
+        es: ["¿Qué hora ___?", "Evgeny ___ profesor.", "Mi abuela ___ de España."], 
+        somos: ["Nosotros ___ estudiantes de la universidad.", "Mi amiga y yo ___ mujeres.", "Evan y yo ___ de Boone."], 
+        sois: ["Vosotros ___ de España.", "Vosotros ___ jóvenes.", "Vosotros ___ amigos."], 
+        son: ["Mis padres ___ de Alemania.", "___ las 8 de la noche.", "Los dos hombres ___ amigos."],
+        estoy: ["Ahora yo ___ en casa.", "Yo ___ feliz.", "Yo ___ en clase."],
+        estas: ["¿Cómo ___ tú?", "Tú ___ enojado.", "Tú ___ en casa."],
+        esta:["Ella ___ en casa.", "El ___ conduciendo ahora.", "Usted ___ haciendo un buen trabajo."],
+        estamos:["Nosotros ___ bien.", "¿Sabe donde nosotros ___?", "Nosotros ___ comiendo la cena."],
+        estais:["Vosotros ___ haciendo la tarea.", "¿Donde ___ vosotros?", "Vosotros ___ en el parque." ],
+        estan:["Ellos ___ haciendo la tarea", "Ellas ___ en casa.", "Ustedes ___ durmiendo."],
+        tengo:["Yo ___ que dormir, tengo sueno.", "Yo __ un pan en el horno.", "Yo ___ poco dinero."],
+        tienes:["Tu ___ que comer.", "¿Tu ___ un reloj?", "Tu ___ un coche?"],
+        tiene:["Ella ___ un buen coche.", "Usted ___ un buen coche.", "El ___ que hacer la tarea."],
+        tenemos:["Nosotros ___ que hacer mucho.", "Nosotros ___ muchas cosas que hacer.", "Nosotros ___ manzanas en la cocina." ],
+        tienen:["Ellos ___ mucha plata/dinero.", "Ellas no ___ suficiente comida.", "Ustedes ___ un coche."],
+        hago:["Yo ___ la tarea.","Yo ___ mi trabajo.", "Yo ___ muchas cosas." ],
+        haces:["Si tú ___ la tarea, puedes comer.", "Cada mañana tú ___ la cama.", "Tú ___ tu propia comida."],
+        hace:["Él ___ su cama", "___ mucho frio.", "¿Sabe si ___ calor?"],
+        hacemos:["¿Cuando nosotros ___ la comida?", "Nosotros ___ un viaje pronto.", "Nosotros ___ lo que queremos."],
+        haceis:["Vosotros ___ las cosas bien.", "Vosotros  ___ mucho trabajo", "Vosotros ___ la cama."],
+        hacen:["Ellas ___ mucho trabajo.", "Ustedes ___ mucho trabajo.", "Ellos ___ demasiadas cosas."]
 
-conjugation = ["voy", "vas", "va", "vamos", "vais", "van"]
+
+
+}
+
+learner_model = {voy:0, vas:0, va:0, vamos:0, vais:0, van:0, soy:0, eres:0, es:0, somos:0, sois:0, son:0, estoy:0, estas:0,esta:0,
+estamos:0, estais:0, estan:0, tengo:0, tienes:0, tiene:0,tenemos:0, tienen:0, hago:0, haces:0, hace:0, hacemos:0, haceis:0, hacen:0
+}
+
+conjugation = ["voy", "vas", "va", "vamos", "vais", "van", "soy", "eres", "es", "somos", "sois", "son", "estoy", "estas", "esta",
+"estamos", "estais", "están", "tengo", "tienes", "tiene","tenemos", "tienen", "hago", "haces", "hace", "hacemos", "haceis", "hacen"
+]
 
 while (true) {
   worst_known_conjugation = conjugation[0]
@@ -23,10 +65,15 @@ while (true) {
     }
   }
 
-  let i = parseInt(Math.random()*5);
+  let i = parseInt(Math.random()*3);
          //alerts weather correct or not and changes the score of the preposition in the learner_model
         question = question_bank[worst_known_conjugation][i]
-   awnswer = prompt(question).trim() 
+        document.getElementById("p1").innerHTML = question
+
+
+   awnswer = prompt(" Choose which verb then conjugate it in the present tense. Ir, Ser, Estar, Tener, Hacer : " + question).trim() 
+
+   
         if(awnswer === worst_known_conjugation){
             alert("Correct: " + question.replace("___", worst_known_conjugation))
             let k = learner_model[worst_known_conjugation];
@@ -38,64 +85,15 @@ while (true) {
             learner_model[worst_known_conjugation]--
         }
         }
+
+
+
+
+
 </script>
 
-<--!script>
-    question_bank_tener =
-        {
-        yo:[],
-        tú: ["Quiero que tú no ___ frío.", "Siento que ___ frío.", "Te doy mi chaqueta para que no ___ frío."],
-        él_ella:["Quienquiera que ___ tu libro, te lo devolverá."],
-        nosotros:[],
-        vosotros:[],
-        ellxs_ustedes:[]
-    }
-    learner_model = {yo: 0, tú: 0, él_ella: 0, nosotros:0, vosotros: 0,ellxs_ustedes:0 }
 
-      verb_tener= ["in", "on","by","behind","outside"]
-    
-    question_bank_venir = 
-        {
-        yo:["El que quiera, que venga"],
-        tú: ["Te ruego que vengas a recogerme al aeropuerto.","Me da igual que vengas o que no vengas.","Me hace muy feliz que vengas a mi boda desde tan lejos"],
-        él_ella:["Puede que venga a mi fiesta, pero no estoy segura","El que quiera, que venga"],
-        nosotros:[],
-        vosotros:["Nos hace mucha ilusión que vengáis a visitarnos."],
-        ellxs_ustedes:["El que quiera, que vengan."]
-        
-    }
-    
-    question_bank_hacer =
-        {
-     yo:["Me han ordenado que haga este trabajo."],
-        tú: [],
-        él_ella:[],
-        nosotros:[],
-        vosotros:[],
-        ellxs_ustedes:[]
-    }
-     question_bank_volver =
-        {
-     yo:[],
-        tú: ["Te dejo que vuelvas tarde esta noche."],
-        él_ella:[" Prefiero que no vuelva"],
-        nosotros:[],
-        vosotros:[],
-        ellxs_ustedes:[]
-    }
-    question_bank_ir =
-        {
-     yo:[],
-        tú: [],
-        él_ella:["Dudo que usted vaya al Perú en diciembre."],
-        nosotros:[],
-        vosotros:[],
-        ellxs_ustedes:[]
-    }
-    
-    
-    learner_model
-<///script>
+
 <!--script>
 
 question_bank = 
