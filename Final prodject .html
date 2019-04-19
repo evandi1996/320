@@ -51,9 +51,21 @@ learner_model = {voy:0, vas:0, va:0, vamos:0, vais:0, van:0, soy:0, eres:0, es:0
 estamos:0, estais:0, estan:0, tengo:0, tienes:0, tiene:0,tenemos:0, tienen:0, hago:0, haces:0, hace:0, hacemos:0, haceis:0, hacen:0
 }
 
+
 conjugation = ["voy", "vas", "va", "vamos", "vais", "van", "soy", "eres", "es", "somos", "sois", "son", "estoy", "estas", "esta",
 "estamos", "estais", "están", "tengo", "tienes", "tiene","tenemos", "tienen", "hago", "haces", "hace", "hacemos", "haceis", "hacen"
 ]
+
+function shuffleArray(conjugation) {
+    for (var i = conjugation.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = conjugation[i];
+        conjugation[i] = conjugation[j];
+        conjugation[j] = temp;
+    }
+  }
+shuffleArray(conjugation)
+  alert(conjugation)
 
 while (true) {
   worst_known_conjugation = conjugation[0]
